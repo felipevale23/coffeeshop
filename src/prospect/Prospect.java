@@ -1,15 +1,17 @@
 package src.prospect;
 
+import java.util.UUID;
+
 public class Prospect {
 
-    protected double id;
+    protected UUID id;
     protected String fullName;
     protected double cpf;
     protected String phone;
 
-    public double getNewID() {
-        double newID = 1.0;
-        return newID;
+    public UUID getNewID() {
+
+        return  UUID.randomUUID();
 
     }
 
