@@ -1,20 +1,13 @@
+package src.prospect;
+
 public class Client extends Prospect {
 
     Client(String fullName, double cpf, String phone) {
 
-        this.id = this.getNewID();
+        this.id = super.getNewID();
         this.fullName = fullName;
         this.cpf = cpf;
         this.phone = phone;
-
-    }
-
-    @Override
-    public double getNewID() {
-
-        double newID = 0;
-
-        return newID;
 
     }
 

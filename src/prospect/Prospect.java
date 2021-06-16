@@ -1,3 +1,5 @@
+package src.prospect;
+
 public class Prospect {
 
     protected double id;
@@ -6,37 +8,43 @@ public class Prospect {
     protected String phone;
 
     public double getNewID() {
-
-        return 0;
+        double newID = 1.0;
+        return newID;
 
     }
 
     public void setFullName(String fullName) {
 
+        this.fullName=fullName;
+
     }
 
     public String getFullName() {
 
-        return "";
+        return this.fullName;
 
     }
 
     public void setCPF(double cpf) {
 
+        this.cpf=cpf;
+
     }
 
     public double getCPF() {
 
-        return 0;
+        return this.cpf;
     }
 
     public void setphone(String phone) {
+
+        this.phone=phone;
 
     }
 
     public String getPhone() {
 
-        return "";
+        return this.phone;
 
     }
 
