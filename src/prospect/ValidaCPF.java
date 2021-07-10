@@ -1,7 +1,7 @@
 package src.prospect;
 import java.util.InputMismatchException;
 
-public class ValidaCPf {
+public class ValidaCPF {
 
     public static boolean isCPF(String CPF) {
         if (CPF.equals("00000000000") ||
