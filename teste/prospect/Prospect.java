@@ -1,4 +1,4 @@
-package src.prospect;
+package teste.prospect;
 
 import java.util.UUID;
 
@@ -11,13 +11,13 @@ public class Prospect {
 
     public UUID getNewID() {
 
-        return  UUID.randomUUID();
+        return UUID.randomUUID();
 
     }
 
     public void setFullName(String fullName) {
 
-        this.fullName=fullName;
+        this.fullName = fullName;
 
     }
 
@@ -29,7 +29,7 @@ public class Prospect {
 
     public void setCPF(double cpf) {
 
-        this.cpf=cpf;
+        this.cpf = cpf;
 
     }
 
@@ -40,7 +40,7 @@ public class Prospect {
 
     public void setphone(String phone) {
 
-        this.phone=phone;
+        this.phone = phone;
 
     }
 

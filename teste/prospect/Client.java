@@ -1,4 +1,4 @@
-package src.prospect;
+package teste.prospect;
 
 public class Client extends Prospect {
 
