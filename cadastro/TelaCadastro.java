@@ -1,14 +1,19 @@
-package Cadastro;
+package cadastro;
 
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
-
+import java.awt.FlowLayout;
 import java.text.ParseException;
 
-
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
@@ -31,7 +36,7 @@ public class TelaCadastro extends JFrame {
 
 	private void telacadastro() {
 		Container janela = getContentPane();
-		setLayout(null);
+		janela.setLayout(null);
 		
 		JLabel labelNome = new JLabel("Nome: ");
 		
@@ -65,7 +70,7 @@ public class TelaCadastro extends JFrame {
             
         }
         catch(ParseException excp){
-        	System.err.println("Erro na formatação:" + excp.getMessage());
+        	System.err.println("Erro na formatacao:" + excp.getMessage());
             System.exit(-1);
         }
         JTextField nome = new JTextField(10); 
@@ -89,8 +94,12 @@ public class TelaCadastro extends JFrame {
         janela.add(jFormattedTextTel);
         janela.add(jFormattedTextCpf);
         janela.add(jFormattedTextData);
-        
-
+        JPanel panelBotoes = new JPanel();
+        panelBotoes.setLayout(new FlowLayout());
+        JButton botaoSalvar = new JButton("Salvar");
+        panelBotoes.add(botaoSalvar);
+        add(panelBotoes, BorderLayout.SOUTH);
+        ((JComponent) janela).setBorder(BorderFactory.createLineBorder(Color.black));
         setSize(500, 350);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);

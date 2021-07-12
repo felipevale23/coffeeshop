@@ -1,3 +1,6 @@
+package teste;
+
+
 import java.util.UUID;
 
 public class Estoque {

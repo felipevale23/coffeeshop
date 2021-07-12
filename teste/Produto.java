@@ -1,3 +1,5 @@
+package teste;
+
 import java.util.UUID;
 
 public class Produto extends Estoque{
