@@ -1,4 +1,8 @@
+<<<<<<< HEAD:teste/Produto.java
+package teste;
+=======
 package teste.estoque;
+>>>>>>> 08bb840fbaccb48907876a80a0afb7d33cb92bce:teste/estoque/Produto.java
 
 import java.util.UUID;
 
