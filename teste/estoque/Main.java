@@ -1,26 +1,23 @@
 package teste.estoque;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class Main {
 
-    public static void readTheFile() {
+    public static String readTheFile() {
 
-        Path path = Paths.get("estoque_db.txt");
+        String s;
+        StringBuilder bld = new StringBuilder();
 
         try {
 
-            FileInputStream estoque_db = new FileInputStream(path.normalize().toString());
+            FileInputStream estoque_db = new FileInputStream("estoque_db.txt");
             InputStreamReader input = new InputStreamReader(estoque_db);
             BufferedReader reader = new BufferedReader(input);
-
-            String s;
 
             do {
 
@@ -30,11 +27,9 @@ public class Main {
 
                     String[] w = s.split(";");
 
-                    System.out.println("-----------------------------------------");
-
                     for (int i = 0; i < w.length; i++) {
 
-                        System.out.println("Palavra Lida = " + w[i]);
+                        bld.append(w[i] + "\n");
 
                     }
 
@@ -46,42 +41,39 @@ public class Main {
 
         } catch (Exception e) {
 
-            System.out.println("");
+            return "Nao foi possivel ler o Arquivo.";
 
         }
+
+        return bld.toString();
 
     }
 
     public static void writeTheFile(String input) {
 
+        String path = "estoque_db.txt";
+
         try {
 
-            FileOutputStream estoque_db = new FileOutputStream("estoque_db.txt");
-            PrintWriter out = new PrintWriter(estoque_db);
+            BufferedWriter writer = new BufferedWriter(new FileWriter(path, true));
+            writer.append("");
+            writer.append(input + "\n");
 
-            out.println(input);
-
-            out.close();
-            estoque_db.close();
+            writer.close();
 
         } catch (Exception e) {
 
             System.out.println("Erro ao escrever em Estoque Database");
 
         }
+
     }
 
     public static void main(String[] args) {
 
-        Produto[] produto = new Produto[10];
+        writeTheFile("Id: 65465465465465465;Nome: Expresso;Preco: 2.50;Categoria: Bebidas");
 
-        for (int i = 0; i < produto.length; i++) {
-
-            produto[i] = new Produto();
-
-        }
-
-        readTheFile();
+        System.out.println("" + readTheFile());
 
     }
 
