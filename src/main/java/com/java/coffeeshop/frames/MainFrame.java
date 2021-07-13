@@ -39,21 +39,25 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
 
                         int i = 0;
 
-                        s = reader.readLine();
+                        do {
 
-                        if (s != null) {
+                                s = reader.readLine();
 
-                                String[] w = s.split(";");
+                                if (s != null) {
 
-                                for (int j = 0; j < w.length; j++) {
+                                        String[] w = s.split(";");
 
-                                        r[i][j] = w[j];
+                                        for (int j = 0; j < w.length; j++) {
+
+                                                r[i][j] = w[j];
+
+                                        }
 
                                 }
 
                                 i++;
 
-                        }
+                        } while (s != null);
 
                         reader.close();
 
