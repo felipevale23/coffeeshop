@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 com\java\coffeeshop\MainFrame$2.class
 com\java\coffeeshop\RegisterProducts$1.class
 com\java\coffeeshop\MainFrame.class
@@ -11,3 +12,16 @@ com\java\coffeeshop\RegisterProducts$2.class
 com\java\coffeeshop\MainFrame$6.class
 com\java\coffeeshop\MainFrame$5.class
 com\java\coffeeshop\MainFrame$1.class
+=======
+src\main\java\com\java\coffeeshop\App.class
+src\main\java\com\java\coffeeshop\frames\MainFrame$2.class
+com\java\coffeeshop\frames\Cadastro.class
+com\java\coffeeshop\frames\Cadastro$2.class
+src\main\java\com\java\coffeeshop\frames\FrameManagement.class
+src\main\java\com\java\coffeeshop\frames\MainFrame$1.class
+src\main\java\com\java\coffeeshop\frames\MainFrame$3.class
+com\java\coffeeshop\frames\Cadastro$1.class
+src\main\java\com\java\coffeeshop\frames\MainFrame.class
+src\main\java\com\java\coffeeshop\frames\MainFrame$4.class
+src\main\java\com\java\coffeeshop\frames\MainFrame$5.class
+>>>>>>> 31e8c75d35e2068b6e008d99e02af5e320360f79
