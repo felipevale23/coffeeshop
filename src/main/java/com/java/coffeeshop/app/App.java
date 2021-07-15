@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package src.main.java.com.java.coffeeshop;
+package src.main.java.com.java.coffeeshop.app;
 
 import javax.swing.JFrame;
-import src.main.java.com.java.coffeeshop.frames.*;
+import src.main.java.com.java.coffeeshop.frames.MainFrame;
 
 /**
  *

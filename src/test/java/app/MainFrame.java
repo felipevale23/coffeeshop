@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package src.main.java.com.java.coffeeshop.frames;
+package src.test.java.app;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -132,10 +132,12 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
         desktopPaneLayout.setVerticalGroup(desktopPaneLayout
                 .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 660, Short.MAX_VALUE));
 
-        file.setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/page.png")); // NOI18N
+        file.setIcon(
+                new javax.swing.ImageIcon("D:\\Usuários\\Público\\Documents\\DEV\\Java\\coffeeshop\\images\\page.png")); // NOI18N
         file.setText("Arquivo");
 
-        exit.setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/exit.png")); // NOI18N
+        exit.setIcon(
+                new javax.swing.ImageIcon("D:\\Usuários\\Público\\Documents\\DEV\\Java\\coffeeshop\\images\\exit.png")); // NOI18N
         exit.setText("Sair");
         exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,11 +148,13 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
 
         menuBar.add(file);
 
-        costumers.setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/customer.png")); // NOI18N
+        costumers.setIcon(new javax.swing.ImageIcon(
+                "D:\\Usuários\\Público\\Documents\\DEV\\Java\\coffeeshop\\images\\customer.png")); // NOI18N
         costumers.setText("Clientes");
         costumers.setMaximumSize(new java.awt.Dimension(123, 68));
 
-        addCustumer.setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/adduser.png")); // NOI18N
+        addCustumer.setIcon(new javax.swing.ImageIcon(
+                "D:\\Usuários\\Público\\Documents\\DEV\\Java\\coffeeshop\\images\\adduser.png")); // NOI18N
         addCustumer.setText("Cadastrar");
         addCustumer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,14 +163,15 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
         });
         costumers.add(addCustumer);
 
-        searchCostumer
-                .setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/findcustumer.png")); // NOI18N
+        searchCostumer.setIcon(new javax.swing.ImageIcon(
+                "D:\\Usuários\\Público\\Documents\\DEV\\Java\\coffeeshop\\images\\findcustumer.png")); // NOI18N
         searchCostumer.setText("Consultar");
         costumers.add(searchCostumer);
 
         menuBar.add(costumers);
 
-        products.setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/products.png")); // NOI18N
+        products.setIcon(new javax.swing.ImageIcon(
+                "D:\\Usuários\\Público\\Documents\\DEV\\Java\\coffeeshop\\images\\products.png")); // NOI18N
         products.setText("Produtos");
         products.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,8 +179,8 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
             }
         });
 
-        listProducts
-                .setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/listproducts.png")); // NOI18N
+        listProducts.setIcon(new javax.swing.ImageIcon(
+                "D:\\Usuários\\Público\\Documents\\DEV\\Java\\coffeeshop\\images\\listproducts.png")); // NOI18N
         listProducts.setText("Listar");
         listProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,8 +189,8 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
         });
         products.add(listProducts);
 
-        registerProducts
-                .setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/newproduct.png")); // NOI18N
+        registerProducts.setIcon(new javax.swing.ImageIcon(
+                "D:\\Usuários\\Público\\Documents\\DEV\\Java\\coffeeshop\\images\\newproduct.png")); // NOI18N
         registerProducts.setText("Cadastrar");
         registerProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,11 +201,13 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
 
         menuBar.add(products);
 
-        stock.setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/stock.png")); // NOI18N
+        stock.setIcon(new javax.swing.ImageIcon(
+                "D:\\Usuários\\Público\\Documents\\DEV\\Java\\coffeeshop\\images\\stock.png")); // NOI18N
         stock.setText("Estoque");
         menuBar.add(stock);
 
-        about.setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/about.png")); // NOI18N
+        about.setIcon(new javax.swing.ImageIcon(
+                "D:\\Usuários\\Público\\Documents\\DEV\\Java\\coffeeshop\\images\\about.png")); // NOI18N
         about.setText("Sobre");
         menuBar.add(about);
 
