@@ -1,4 +1,4 @@
-package src.test.java.app;
+package app;
 
 public interface FrameManagement {
 

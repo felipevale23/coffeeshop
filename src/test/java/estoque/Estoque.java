@@ -1,4 +1,4 @@
-package src.test.java.estoque;
+package estoque;
 
 import java.util.UUID;
 

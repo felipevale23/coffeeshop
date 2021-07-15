@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package src.main.java.com.java.coffeeshop.frames;
+package com.java.coffeeshop.frames;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -67,6 +67,7 @@ public class RegisterProducts extends javax.swing.JInternalFrame {
 
                 setClosable(true);
                 setResizable(true);
+
                 setFrameIcon(new javax.swing.ImageIcon(
                                 "/home/felipe/DEV/Java-Scripts/coffeeshop/images/coffeeshop.png")); // NOI18N
                 setMaximumSize(new java.awt.Dimension(1280, 664));
@@ -286,6 +287,12 @@ public class RegisterProducts extends javax.swing.JInternalFrame {
                                         ammountField.getText());
 
                         JOptionPane.showMessageDialog(this, "Cadastrado com Sucesso");
+
+                        idField.setText("");
+                        nameField.setText("");
+                        priceField.setText("");
+                        categoryField.setText("");
+                        ammountField.setText("");
                 }
 
         }// GEN-LAST:event_registerFieldActionPerformed

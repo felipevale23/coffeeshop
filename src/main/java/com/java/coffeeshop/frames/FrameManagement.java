@@ -1,4 +1,4 @@
-package src.main.java.com.java.coffeeshop.frames;
+package com.java.coffeeshop.frames;
 
 public interface FrameManagement {
 

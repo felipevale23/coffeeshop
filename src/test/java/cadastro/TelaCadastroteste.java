@@ -1,4 +1,4 @@
-package src.test.java.cadastro;
+package cadastro;
 
 public class TelaCadastroteste {
 

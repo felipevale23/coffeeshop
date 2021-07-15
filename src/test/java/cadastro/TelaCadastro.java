@@ -1,4 +1,4 @@
-package src.test.java.cadastro;
+package cadastro;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

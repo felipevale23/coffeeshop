@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package src.main.java.com.java.coffeeshop.frames;
+package com.java.coffeeshop.frames;
 
 import java.io.BufferedReader;
 import java.io.File;

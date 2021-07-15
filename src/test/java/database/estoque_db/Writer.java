@@ -1,4 +1,4 @@
-package src.test.java.database.estoque_db;
+package database.estoque_db;
 
 import java.io.FileOutputStream;
 import java.io.PrintWriter;

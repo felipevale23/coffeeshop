@@ -1,4 +1,4 @@
-package src.test.java.telaprincipal;
+package telaprincipal;
 
 public class Vendas {
 

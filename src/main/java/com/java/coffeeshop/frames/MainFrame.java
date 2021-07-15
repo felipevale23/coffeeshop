@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package src.main.java.com.java.coffeeshop.frames;
+package com.java.coffeeshop.frames;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -250,6 +250,9 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
 
     private void addCustumerActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addCustumerActionPerformed
         // TODO add your handling code here:
+        RegisterCustumer registerCustumer = new RegisterCustumer();
+        desktopPane.add(registerCustumer);
+        registerCustumer.setVisible(true);
 
     }// GEN-LAST:event_addCustumerActionPerformed
 

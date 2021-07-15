@@ -1,4 +1,4 @@
-package src.test.java.telaprincipal;
+package telaprincipal;
 
 import javax.swing.JFrame;
 

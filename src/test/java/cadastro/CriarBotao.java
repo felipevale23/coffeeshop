@@ -1,4 +1,4 @@
-package src.test.java.cadastro;
+package cadastro;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;

@@ -1,4 +1,4 @@
-package src.test.java.prospect;
+package prospect;
 
 import java.util.UUID;
 

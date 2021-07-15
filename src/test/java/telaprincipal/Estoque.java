@@ -1,4 +1,4 @@
-package src.test.java.telaprincipal;
+package telaprincipal;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
