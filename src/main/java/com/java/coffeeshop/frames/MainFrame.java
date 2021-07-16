@@ -28,7 +28,7 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
 
     String s;
     String[][] r = new String[50][4];
-    
+
     public void readData() {
 
         File file = new File(
@@ -252,7 +252,7 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
         about.setText("Sobre");
         about.setForeground(new java.awt.Color(116, 70, 255));
         menuBar.add(about);
-       
+
         setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -345,6 +345,9 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
 
     private void newSaleActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addCustumerActionPerformed
         // TODO add your handling code here:
+        NewSale newSale = new NewSale();
+        desktopPane.add(newSale);
+        newSale.setVisible(true);
 
     }
 

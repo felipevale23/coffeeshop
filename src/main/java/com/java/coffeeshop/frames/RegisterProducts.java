@@ -7,14 +7,13 @@ package com.java.coffeeshop.frames;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author felip
  */
-public class RegisterProducts extends javax.swing.JInternalFrame {
+public class RegisterProducts extends javax.swing.JInternalFrame implements FrameManagement {
 
         /**
          * Creates new form RegisterProducts

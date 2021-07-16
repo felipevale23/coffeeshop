@@ -1,49 +1,46 @@
-package prospect;
+package com.java.coffeeshop.app.prospect;
 
-import java.util.UUID;
+public class Custumers extends Prospect {
 
-public class Prospect {
-
-    protected UUID id;
-    protected String fullName;
-    protected double cpf;
-    protected String phone;
-
-    public UUID getNewID() {
-
-        return UUID.randomUUID();
+    public Custumers() {
 
     }
 
+    @Override
     public void setFullName(String fullName) {
 
         this.fullName = fullName;
 
     }
 
+    @Override
     public String getFullName() {
 
         return this.fullName;
 
     }
 
-    public void setCPF(double cpf) {
+    @Override
+    public void setCPF(String cpf) {
 
         this.cpf = cpf;
 
     }
 
-    public double getCPF() {
+    @Override
+    public String getCPF() {
 
         return this.cpf;
     }
 
+    @Override
     public void setphone(String phone) {
 
         this.phone = phone;
 
     }
 
+    @Override
     public String getPhone() {
 
         return this.phone;

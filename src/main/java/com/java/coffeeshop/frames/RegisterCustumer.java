@@ -60,12 +60,13 @@ public class RegisterCustumer extends javax.swing.JInternalFrame implements Fram
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextFieldNome = new javax.swing.JTextField();
-        jTextFieldCep = new javax.swing.JTextField();
-        jTextFieldCPF = new javax.swing.JTextField();
-        jTextFieldData = new javax.swing.JTextField();
-        jTextFieldTelefone = new javax.swing.JTextField();
+        jTextFieldCep = new javax.swing.JFormattedTextField();
+        jTextFieldCPF = new javax.swing.JFormattedTextField();
+        jTextFieldData = new javax.swing.JFormattedTextField();
+        jTextFieldTelefone = new javax.swing.JFormattedTextField();
         jButtonSalvarCadastro = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
+        jTextFieldCep = new javax.swing.JFormattedTextField();
 
         setClosable(true);
         setResizable(true);
@@ -117,6 +118,32 @@ public class RegisterCustumer extends javax.swing.JInternalFrame implements Fram
                 jButtonCancelarActionPerformed(evt);
             }
         });
+
+        try {
+            jTextFieldCep.setFormatterFactory(
+                    new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            jTextFieldData.setFormatterFactory(
+                    new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jTextFieldData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldDataActionPerformed(evt);
+            }
+        });
+
+        try {
+            jTextFieldTelefone.setFormatterFactory(
+                    new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -220,6 +247,11 @@ public class RegisterCustumer extends javax.swing.JInternalFrame implements Fram
 
     }// GEN-LAST:event_jTextFieldNomeActionPerformed
 
+    private void jTextFieldDataActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTextFieldNomeActionPerformed
+        // TODO add your handling code here:
+
+    }// GEN-LAST:event_jTextFieldNomeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -272,10 +304,10 @@ public class RegisterCustumer extends javax.swing.JInternalFrame implements Fram
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextFieldCPF;
-    private javax.swing.JTextField jTextFieldCep;
-    private javax.swing.JTextField jTextFieldData;
+    private javax.swing.JFormattedTextField jTextFieldCPF;
+    private javax.swing.JFormattedTextField jTextFieldCep;
+    private javax.swing.JFormattedTextField jTextFieldData;
     private javax.swing.JTextField jTextFieldNome;
-    private javax.swing.JTextField jTextFieldTelefone;
+    private javax.swing.JFormattedTextField jTextFieldTelefone;
     // End of variables declaration//GEN-END:variables
 }

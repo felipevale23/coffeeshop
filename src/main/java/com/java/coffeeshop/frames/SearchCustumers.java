@@ -151,7 +151,7 @@ public class SearchCustumers extends javax.swing.JInternalFrame implements Frame
                 { null, null, null, null, null }, { null, null, null, null, null }, { null, null, null, null, null },
                 { null, null, null, null, null }, { null, null, null, null, null }, { null, null, null, null, null },
                 { null, null, null, null, null } },
-                new String[] { "Nome", "CPF", "CEP", "Data de Nascimento", "Contato" }));
+                new String[] { "Nome", "CEP", "CPF", "Data de Nascimento", "Contato" }));
         custumersTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         custumersTable.setEnabled(false);
         custumersTable.setGridColor(new java.awt.Color(87, 25, 202));

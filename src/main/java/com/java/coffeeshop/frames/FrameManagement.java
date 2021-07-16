@@ -14,4 +14,12 @@ public interface FrameManagement {
 
     }
 
+    static void getCustumers() {
+
+    }
+
+    static void setCustumers() {
+
+    }
+
 }
