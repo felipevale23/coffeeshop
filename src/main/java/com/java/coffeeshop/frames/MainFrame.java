@@ -10,7 +10,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -29,7 +28,7 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
 
     String s;
     String[][] r = new String[50][4];
-
+    
     public void readData() {
 
         File file = new File(
@@ -74,7 +73,7 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
 
     public void writeDate(String input) {
 
-        String path = "estoque_db.txt";
+        String path = "/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/estoque_db.txt";
 
         try {
 
@@ -106,13 +105,16 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
         menuBar = new javax.swing.JMenuBar();
         file = new javax.swing.JMenu();
         exit = new javax.swing.JMenuItem();
-        costumers = new javax.swing.JMenu();
+        custumers = new javax.swing.JMenu();
         addCustumer = new javax.swing.JMenuItem();
-        searchCostumer = new javax.swing.JMenuItem();
+        searchCustumers = new javax.swing.JMenuItem();
         products = new javax.swing.JMenu();
         listProducts = new javax.swing.JMenuItem();
         registerProducts = new javax.swing.JMenuItem();
         stock = new javax.swing.JMenu();
+        sales = new javax.swing.JMenu();
+        newSale = new javax.swing.JMenuItem();
+        salesHistory = new javax.swing.JMenuItem();
         about = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -134,9 +136,11 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
 
         file.setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/page.png")); // NOI18N
         file.setText("Arquivo");
+        file.setForeground(new java.awt.Color(116, 70, 255));
 
         exit.setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/exit.png")); // NOI18N
         exit.setText("Sair");
+        exit.setForeground(new java.awt.Color(116, 70, 255));
         exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitActionPerformed(evt);
@@ -146,28 +150,36 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
 
         menuBar.add(file);
 
-        costumers.setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/customer.png")); // NOI18N
-        costumers.setText("Clientes");
-        costumers.setMaximumSize(new java.awt.Dimension(123, 68));
+        custumers.setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/customer.png")); // NOI18N
+        custumers.setText("Clientes");
+        custumers.setForeground(new java.awt.Color(116, 70, 255));
+
+        searchCustumers
+                .setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/findcustumer.png")); // NOI18N
+        searchCustumers.setText("Consultar");
+        searchCustumers.setForeground(new java.awt.Color(116, 70, 255));
+        searchCustumers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchCustumersActionPerformed(evt);
+            }
+        });
+        custumers.add(searchCustumers);
 
         addCustumer.setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/adduser.png")); // NOI18N
         addCustumer.setText("Cadastrar");
+        addCustumer.setForeground(new java.awt.Color(116, 70, 255));
         addCustumer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addCustumerActionPerformed(evt);
             }
         });
-        costumers.add(addCustumer);
+        custumers.add(addCustumer);
 
-        searchCostumer
-                .setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/findcustumer.png")); // NOI18N
-        searchCostumer.setText("Consultar");
-        costumers.add(searchCostumer);
-
-        menuBar.add(costumers);
+        menuBar.add(custumers);
 
         products.setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/products.png")); // NOI18N
         products.setText("Produtos");
+        products.setForeground(new java.awt.Color(116, 70, 255));
         products.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 productsActionPerformed(evt);
@@ -177,6 +189,7 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
         listProducts
                 .setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/listproducts.png")); // NOI18N
         listProducts.setText("Listar");
+        listProducts.setForeground(new java.awt.Color(116, 70, 255));
         listProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listProductsActionPerformed(evt);
@@ -187,6 +200,7 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
         registerProducts
                 .setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/newproduct.png")); // NOI18N
         registerProducts.setText("Cadastrar");
+        registerProducts.setForeground(new java.awt.Color(116, 70, 255));
         registerProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerProductsActionPerformed(evt);
@@ -198,12 +212,47 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
 
         stock.setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/stock.png")); // NOI18N
         stock.setText("Estoque");
+        stock.setForeground(new java.awt.Color(116, 70, 255));
+
         menuBar.add(stock);
+
+        sales.setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/sellstock.png")); // NOI18N
+        sales.setText("Vendas");
+        sales.setForeground(new java.awt.Color(116, 70, 255));
+        sales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salesActionPerformed(evt);
+            }
+        });
+
+        newSale.setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/neworder.png")); // NOI18N
+        newSale.setText("Nova Venda");
+        newSale.setForeground(new java.awt.Color(116, 70, 255));
+        newSale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newSaleActionPerformed(evt);
+            }
+        });
+        sales.add(newSale);
+
+        salesHistory
+                .setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/saleshistory.png")); // NOI18N
+        salesHistory.setText("Livro Caixa");
+        salesHistory.setForeground(new java.awt.Color(116, 70, 255));
+        salesHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salesHistoryActionPerformed(evt);
+            }
+        });
+        sales.add(salesHistory);
+
+        menuBar.add(sales);
 
         about.setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/about.png")); // NOI18N
         about.setText("Sobre");
+        about.setForeground(new java.awt.Color(116, 70, 255));
         menuBar.add(about);
-
+       
         setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -233,6 +282,14 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
         desktopPane.add(register);
         register.setVisible(true);
 
+        RegisterCustumer registerCustumer = new RegisterCustumer();
+        desktopPane.add(registerCustumer);
+        registerCustumer.setVisible(false);
+
+        ListProducts list = new ListProducts();
+        desktopPane.add(list);
+        list.setVisible(false);
+
     }// GEN-LAST:event_registerProductsActionPerformed
 
     private void listProductsActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_listProductsActionPerformed
@@ -240,6 +297,14 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
         ListProducts list = new ListProducts();
         desktopPane.add(list);
         list.setVisible(true);
+
+        RegisterCustumer registerCustumer = new RegisterCustumer();
+        desktopPane.add(registerCustumer);
+        registerCustumer.setVisible(false);
+
+        RegisterProducts register = new RegisterProducts();
+        desktopPane.add(register);
+        register.setVisible(false);
 
     }// GEN-LAST:event_listProductsActionPerformed
 
@@ -254,7 +319,39 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
         desktopPane.add(registerCustumer);
         registerCustumer.setVisible(true);
 
+        RegisterProducts register = new RegisterProducts();
+        desktopPane.add(register);
+        register.setVisible(false);
+
+        ListProducts list = new ListProducts();
+        desktopPane.add(list);
+        list.setVisible(false);
+
     }// GEN-LAST:event_addCustumerActionPerformed
+
+    private void searchCustumersActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addCustumerActionPerformed
+        // TODO add your handling code here:
+
+        SearchCustumers searchCustumer = new SearchCustumers();
+        desktopPane.add(searchCustumer);
+        searchCustumer.setVisible(true);
+
+    }
+
+    private void salesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addCustumerActionPerformed
+        // TODO add your handling code here:
+
+    }
+
+    private void newSaleActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addCustumerActionPerformed
+        // TODO add your handling code here:
+
+    }
+
+    private void salesHistoryActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addCustumerActionPerformed
+        // TODO add your handling code here:
+
+    }
 
     /**
      * @param args the command line arguments
@@ -297,7 +394,7 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu about;
     private javax.swing.JMenuItem addCustumer;
-    private javax.swing.JMenu costumers;
+    private javax.swing.JMenu custumers;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenuItem exit;
     private javax.swing.JMenu file;
@@ -305,7 +402,10 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu products;
     private javax.swing.JMenuItem registerProducts;
-    private javax.swing.JMenuItem searchCostumer;
+    private javax.swing.JMenuItem searchCustumers;
     private javax.swing.JMenu stock;
+    private javax.swing.JMenuItem newSale;
+    private javax.swing.JMenuItem salesHistory;
+    private javax.swing.JMenu sales;
     // End of variables declaration//GEN-END:variables
 }

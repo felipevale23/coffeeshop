@@ -6,6 +6,7 @@
 package com.java.coffeeshop.app;
 
 import javax.swing.JFrame;
+
 import com.java.coffeeshop.frames.MainFrame;
 
 /**
@@ -15,6 +16,7 @@ import com.java.coffeeshop.frames.MainFrame;
 public class App {
 
 	public static void main(String[] args) {
+
 		MainFrame frame = new MainFrame();
 
 		frame.setSize(1280, 720);
