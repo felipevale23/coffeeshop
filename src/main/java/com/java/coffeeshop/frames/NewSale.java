@@ -7,8 +7,14 @@
 package com.java.coffeeshop.frames;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import com.java.coffeeshop.app.prospect.Custumers;
 import com.java.coffeeshop.app.stock.Products;
 
@@ -228,6 +234,71 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
         }
 
+        public void setSalesTableData() {
+
+                String path = "/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/salesHistory_db.txt";
+                int i = 0;
+                String[][] t = new String[50][6];
+                boolean flag = false;
+
+                do {
+
+                        t[i][0] = "20/10/2021";
+                        t[i][1] = "" + jTextField2.getText();
+                        t[i][2] = "" + jComboBox1.getSelectedItem();
+                        t[i][3] = "" + jTable1.getValueAt(i, 1);
+                        t[i][4] = "" + jTable1.getValueAt(i, 2);
+                        t[i][5] = "" + jTable1.getValueAt(i, 4);
+
+                        if (jTable1.getValueAt(i, 4) == null) {
+
+                                flag = true;
+
+                        } else {
+
+                                try {
+
+                                        BufferedWriter writer = new BufferedWriter(new FileWriter(path, true));
+                                        writer.append("" + t[i][0] + ";" + t[i][1] + ";" + t[i][2] + ";" + t[i][3] + ";"
+                                                        + t[i][4] + ";" + t[i][5] + ";\n");
+
+                                        writer.close();
+                                        i++;
+
+                                } catch (Exception e) {
+
+                                        System.out.println("Erro ao escrever em Livro Caixa Database");
+                                        flag = true;
+
+                                }
+
+                        }
+
+                } while (flag != true);
+
+        }
+
+        public void clear() {
+
+                jComboBox1.setEnabled(true);
+                valorTotal.setText("");
+                total = 0;
+                rowCounter = 0;
+                jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                                new Object[][] { { null, null, null, null, null }, { null, null, null, null, null },
+                                                { null, null, null, null, null }, { null, null, null, null, null },
+                                                { null, null, null, null, null }, { null, null, null, null, null },
+                                                { null, null, null, null, null }, { null, null, null, null, null },
+                                                { null, null, null, null, null }, { null, null, null, null, null },
+                                                { null, null, null, null, null }, { null, null, null, null, null },
+                                                { null, null, null, null, null }, { null, null, null, null, null },
+                                                { null, null, null, null, null }, { null, null, null, null, null },
+                                                { null, null, null, null, null }, { null, null, null, null, null },
+                                                { null, null, null, null, null }, { null, null, null, null, null } },
+                                new String[] { "Código Produto", "Nome Produto", "Quantidade", "Valor Un.",
+                                                "Valor Total" }));
+        }
+
         /**
          * This method is called from within the constructor to initialize the form.
          * WARNING: Do NOT modify this code. The content of this method is always
@@ -346,6 +417,11 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
                 });
 
                 botaoSalvar.setText("Salvar");
+                botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                botaoSalvarActionPerformed(evt);
+                        }
+                });
                 botaoCancelar.setText("Cancelar");
                 botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -607,23 +683,21 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
         private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {
                 // TODO add your handling code here:
-                jComboBox1.setEnabled(true);
-                valorTotal.setText("");
-                total = 0;
-                rowCounter = 0;
-                jTable1.setModel(new javax.swing.table.DefaultTableModel(
-                                new Object[][] { { null, null, null, null, null }, { null, null, null, null, null },
-                                                { null, null, null, null, null }, { null, null, null, null, null },
-                                                { null, null, null, null, null }, { null, null, null, null, null },
-                                                { null, null, null, null, null }, { null, null, null, null, null },
-                                                { null, null, null, null, null }, { null, null, null, null, null },
-                                                { null, null, null, null, null }, { null, null, null, null, null },
-                                                { null, null, null, null, null }, { null, null, null, null, null },
-                                                { null, null, null, null, null }, { null, null, null, null, null },
-                                                { null, null, null, null, null }, { null, null, null, null, null },
-                                                { null, null, null, null, null }, { null, null, null, null, null } },
-                                new String[] { "Código Produto", "Nome Produto", "Quantidade", "Valor Un.",
-                                                "Valor Total" }));
+
+                clear();
+
+        }
+
+        private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {
+
+                JFrame frame = new JFrame("Salvar");
+                if (JOptionPane.showConfirmDialog(frame, "Deseja realmente salvar?", "Salvar",
+                                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+
+                        setSalesTableData();
+                        clear();
+
+                }
 
         }
 

@@ -354,6 +354,10 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
     private void salesHistoryActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addCustumerActionPerformed
         // TODO add your handling code here:
 
+        SalesHistory salesHistory = new SalesHistory();
+        desktopPane.add(salesHistory);
+        salesHistory.setVisible(true);
+
     }
 
     /**
