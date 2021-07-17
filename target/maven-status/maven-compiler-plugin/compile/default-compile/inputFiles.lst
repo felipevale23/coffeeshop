@@ -1,4 +1,9 @@
-D:\Usuários\Público\Documents\DEV\Java\coffeeshop\src\main\java\com\java\coffeeshop\MainFrame.java
-D:\Usuários\Público\Documents\DEV\Java\coffeeshop\src\main\java\com\java\coffeeshop\ListProducts.java
-D:\Usuários\Público\Documents\DEV\Java\coffeeshop\src\main\java\com\java\coffeeshop\RegisterProducts.java
-D:\Usuários\Público\Documents\DEV\Java\coffeeshop\src\main\java\com\java\coffeeshop\App.java
+/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/SearchCustumers.java
+/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/NewSale.java
+/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/RegisterCustumer.java
+/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/ListProducts.java
+/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/RegisterProducts.java
+/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/FrameManagement.java
+/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/app/App.java
+/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/MainFrame.java
+/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/Venda.java

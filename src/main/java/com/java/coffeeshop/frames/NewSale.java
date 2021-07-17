@@ -9,6 +9,8 @@ package com.java.coffeeshop.frames;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import com.java.coffeeshop.app.prospect.Custumers;
+import com.java.coffeeshop.app.stock.Products;
 
 public class NewSale extends javax.swing.JInternalFrame implements FrameManagement {
 
@@ -21,11 +23,19 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
         }
 
         int custumersList = 50;
+        int productListSize = 50;
+        int rowCounter = 0;
+        int aux = 0;
+        float total;
+        float desc;
 
         String s;
         String[][] r = new String[custumersList][5];
+        String[][] e = new String[custumersList][5];
+        Custumers[] custumers = new Custumers[custumersList];
+        Products[] products = new Products[productListSize];
 
-        public void readData() {
+        public void readDataCustumers() {
 
                 File file = new File(
                                 "/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/clientes_db.txt");
@@ -67,19 +77,154 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
         }
 
+        public void readDataProducts() {
+
+                File file = new File(
+                                "/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/estoque_db.txt");
+                String path = file.getPath();
+
+                try {
+
+                        BufferedReader reader = new BufferedReader(new FileReader(path));
+
+                        int i = 0;
+
+                        do {
+
+                                s = reader.readLine();
+
+                                if (s != null) {
+
+                                        String[] w = s.split(";");
+
+                                        for (int j = 0; j < w.length; j++) {
+
+                                                e[i][j] = w[j];
+
+                                        }
+
+                                }
+
+                                i++;
+
+                        } while (s != null);
+
+                        reader.close();
+
+                } catch (Exception e) {
+
+                        s = "Erro de Leitura";
+
+                }
+
+        }
+
         public void getCustumers() {
 
-                readData();
+                readDataCustumers();
 
                 for (int i = 0; i < custumersList; i++) {
 
-                        if (r[i][1] != null) {
-
-                                jComboBox1.addItem(r[i][0]);
-
-                        }
+                        custumers[i] = new Custumers();
+                        custumers[i].setFullName(r[i][0]);
+                        custumers[i].setCEP(r[i][1]);
+                        custumers[i].setCPF(r[i][2]);
+                        custumers[i].setBirthDate(r[i][3]);
+                        custumers[i].setphone(r[i][4]);
 
                 }
+
+                for (int i = 0; i < custumersList; i++) {
+
+                        jComboBox1.addItem(custumers[i].getFullName());
+
+                }
+
+        }
+
+        public void getProducts() {
+
+                readDataProducts();
+
+                for (int i = 0; i < productListSize; i++) {
+
+                        products[i] = new Products();
+                        products[i].setId(e[i][0]);
+                        products[i].setName(e[i][1]);
+                        products[i].setPrice(e[i][2]);
+                        products[i].setCategory(e[i][3]);
+                        products[i].setAmmount(e[i][4]);
+
+                }
+
+                for (int i = 0; i < productListSize; i++) {
+
+                        jComboBox2.addItem(products[i].getName());
+
+                }
+
+        }
+
+        public void setTableData() {
+
+                readDataProducts();
+
+                System.out.println(s);
+
+                int i = 0;
+
+                try {
+
+                        i = 0;
+                        boolean flag = false;
+
+                        do {
+
+                                if (jComboBox2.getSelectedItem() == products[i].getName()) {
+
+                                        aux = i;
+
+                                        jTable1.setValueAt(products[i].getId(), rowCounter, 0);
+                                        jTable1.setValueAt(products[i].getName(), rowCounter, 1);
+                                        jTable1.setValueAt(jTextField4.getText(), rowCounter, 2);
+                                        jTable1.setValueAt(products[i].getPrice(), rowCounter, 3);
+                                        jTable1.setValueAt(getSubTotal(), rowCounter, 4);
+                                        setTotal();
+
+                                        rowCounter++;
+                                        flag = true;
+
+                                } else {
+
+                                        i++;
+
+                                }
+
+                        } while (flag == false);
+
+                } catch (Exception e) {
+
+                        s = "Erro de Leitura";
+
+                }
+        }
+
+        public String getSubTotal() {
+
+                float f = Float.parseFloat(products[aux].getPrice());
+                float f2 = Float.parseFloat(jTextField4.getText());
+                float f3 = f * f2;
+                f3 = f3 - (desc / 100) * f3;
+
+                return "" + f3;
+
+        }
+
+        public void setTotal() {
+
+                total = total + Float.valueOf("" + jTable1.getValueAt((rowCounter), 4));
+
+                valorTotal.setText("" + total);
 
         }
 
@@ -150,12 +295,21 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
                 jLabel2.setText("Código Prod.");
 
-                jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(
-                                new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+                getProducts();
+                jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                jComboBox2ActionPerformed(evt);
+                        }
+                });
 
                 jLabel3.setText("Quantidade:");
 
                 botaoAdicionar.setText("Adicionar");
+                botaoAdicionar.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                botaoAdicionarActionPerformed(evt);
+                        }
+                });
 
                 jTable1.setBackground(new java.awt.Color(245, 240, 253));
                 jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -193,6 +347,11 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
                 botaoSalvar.setText("Salvar");
                 botaoCancelar.setText("Cancelar");
+                botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                botaoCancelarActionPerformed(evt);
+                        }
+                });
 
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                 getContentPane().setLayout(layout);
@@ -370,12 +529,101 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
         private void descontoActionPerformed(java.awt.event.ActionEvent evt) {
                 // TODO add your handling code here:
+
         }
 
         private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {
                 // TODO add your handling code here:
 
-                jComboBox1.getSelectedItem();
+                readDataCustumers();
+
+                try {
+
+                        int i = 0;
+                        boolean flag = false;
+
+                        do {
+
+                                if (jComboBox1.getSelectedItem() == custumers[i].getFullName()) {
+
+                                        jTextField1.setText(custumers[i].getCPF());
+                                        flag = true;
+
+                                } else {
+
+                                        i++;
+
+                                }
+
+                        } while (flag == false);
+
+                } catch (Exception e) {
+
+                        s = "Erro de Leitura";
+
+                }
+
+        }
+
+        private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {
+                // TODO add your handling code here:
+
+                readDataProducts();
+
+                try {
+
+                        int i = 0;
+                        boolean flag = false;
+
+                        do {
+
+                                if (jComboBox2.getSelectedItem() == products[i].getName()) {
+
+                                        jTextField3.setText(products[i].getId());
+                                        flag = true;
+
+                                } else {
+
+                                        i++;
+
+                                }
+
+                        } while (flag == false);
+
+                } catch (Exception e) {
+
+                        s = "Erro de Leitura";
+
+                }
+
+        }
+
+        private void botaoAdicionarActionPerformed(java.awt.event.ActionEvent evt) {
+                // TODO add your handling code here:
+                jComboBox1.setEnabled(false);
+                setTableData();
+
+        }
+
+        private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {
+                // TODO add your handling code here:
+                jComboBox1.setEnabled(true);
+                valorTotal.setText("");
+                total = 0;
+                rowCounter = 0;
+                jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                                new Object[][] { { null, null, null, null, null }, { null, null, null, null, null },
+                                                { null, null, null, null, null }, { null, null, null, null, null },
+                                                { null, null, null, null, null }, { null, null, null, null, null },
+                                                { null, null, null, null, null }, { null, null, null, null, null },
+                                                { null, null, null, null, null }, { null, null, null, null, null },
+                                                { null, null, null, null, null }, { null, null, null, null, null },
+                                                { null, null, null, null, null }, { null, null, null, null, null },
+                                                { null, null, null, null, null }, { null, null, null, null, null },
+                                                { null, null, null, null, null }, { null, null, null, null, null },
+                                                { null, null, null, null, null }, { null, null, null, null, null } },
+                                new String[] { "Código Produto", "Nome Produto", "Quantidade", "Valor Un.",
+                                                "Valor Total" }));
 
         }
 
@@ -401,4 +649,5 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
         private javax.swing.JLabel nomeCliente;
         private javax.swing.JTextField valorTotal;
         // End of variables declaration
+
 }

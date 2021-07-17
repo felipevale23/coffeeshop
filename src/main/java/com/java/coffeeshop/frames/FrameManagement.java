@@ -22,4 +22,8 @@ public interface FrameManagement {
 
     }
 
+    static void getProducts() {
+
+    }
+
 }
