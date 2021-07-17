@@ -34,6 +34,7 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
         int aux = 0;
         float total;
         float desc;
+        int lastCode = 1000;
 
         String s;
         String[][] r = new String[custumersList][5];
@@ -278,6 +279,70 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
         }
 
+        public String getSaleCode() {
+
+                File file = new File(
+                                "/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/salesCode_db.txt");
+                String path = file.getPath();
+
+                try {
+
+                        BufferedReader reader = new BufferedReader(new FileReader(path));
+
+                        do {
+
+                                s = reader.readLine();
+
+                                if (s != null) {
+
+                                        lastCode = Integer.parseInt(s);
+
+                                }
+
+                        } while (s != null);
+
+                        reader.close();
+
+                } catch (Exception e) {
+
+                        s = "Erro de Leitura";
+
+                }
+
+                return "" + (lastCode + 1);
+
+        }
+
+        public void setSaleCode() {
+
+                File file = new File(
+                                "/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/salesCode_db.txt");
+                String path = file.getPath();
+
+                try {
+
+                        BufferedWriter writer = new BufferedWriter(new FileWriter(path, true));
+                        writer.append("" + (lastCode + 1) + "\n");
+
+                        writer.close();
+
+                } catch (Exception e) {
+
+                        System.out.println("Erro ao escrever em salesCode Database");
+
+                }
+
+        }
+
+        public boolean isNumeric(String str) {
+                try {
+                        Double.parseDouble(str);
+                        return true;
+                } catch (NumberFormatException e) {
+                        return false;
+                }
+        }
+
         public void clear() {
 
                 jComboBox1.setEnabled(true);
@@ -297,6 +362,10 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
                                                 { null, null, null, null, null }, { null, null, null, null, null } },
                                 new String[] { "Código Produto", "Nome Produto", "Quantidade", "Valor Un.",
                                                 "Valor Total" }));
+
+                jTextField2.setText(getSaleCode());
+                botaoAdicionar.setEnabled(false);
+                jTextField4.setText("");
         }
 
         /**
@@ -362,7 +431,15 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
                         }
                 });
                 jTextField2.setEnabled(false);
+                jTextField2.setText(getSaleCode());
+
                 jTextField3.setEnabled(false);
+
+                jTextField4.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                jTextField4ActionPerformed(evt);
+                        }
+                });
 
                 jLabel2.setText("Código Prod.");
 
@@ -374,7 +451,7 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
                 });
 
                 jLabel3.setText("Quantidade:");
-
+                botaoAdicionar.setEnabled(false);
                 botaoAdicionar.setText("Adicionar");
                 botaoAdicionar.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -603,6 +680,11 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
                 // TODO add your handling code here:
         }
 
+        private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {
+                // TODO add your handling code here:
+
+        }
+
         private void descontoActionPerformed(java.awt.event.ActionEvent evt) {
                 // TODO add your handling code here:
 
@@ -645,6 +727,7 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
                 // TODO add your handling code here:
 
                 readDataProducts();
+                botaoAdicionar.setEnabled(true);
 
                 try {
 
@@ -676,8 +759,20 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
         private void botaoAdicionarActionPerformed(java.awt.event.ActionEvent evt) {
                 // TODO add your handling code here:
-                jComboBox1.setEnabled(false);
-                setTableData();
+                JFrame frame = new JFrame("Adicionar");
+
+                if (isNumeric(jTextField4.getText())) {
+
+                        jComboBox1.setEnabled(false);
+                        setTableData();
+                        getSaleCode();
+                        jTextField4.setText("");
+
+                } else {
+
+                        JOptionPane.showMessageDialog(frame, "Insira a quantidade", "Error", JOptionPane.ERROR_MESSAGE);
+
+                }
 
         }
 
@@ -695,6 +790,7 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
                                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
 
                         setSalesTableData();
+                        setSaleCode();
                         clear();
 
                 }
