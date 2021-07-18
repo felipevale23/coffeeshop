@@ -9,8 +9,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
-import com.java.coffeeshop.relativepath.RelativePath;
-
 /**
  *
  * @author felip
@@ -24,7 +22,6 @@ public class SalesHistory extends javax.swing.JInternalFrame {
                 initComponents();
         }
 
-        RelativePath relativePath = new RelativePath();
         int salesListSize = 50;
         int productListSize = 50;
         int rowCounter = 0;

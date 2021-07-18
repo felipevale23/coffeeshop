@@ -1,7 +1,5 @@
 package com.java.coffeeshop.frames;
 
-import com.java.coffeeshop.relativepath.RelativePath;
-
 /**
  *
  * @author vinic
@@ -14,8 +12,6 @@ public class About extends javax.swing.JInternalFrame {
         public About() {
                 initComponents();
         }
-
-        RelativePath relativePath = new RelativePath();
 
         /**
          * This method is called from within the constructor to initialize the form.
@@ -39,7 +35,7 @@ public class About extends javax.swing.JInternalFrame {
                 setResizable(true);
                 setVisible(true);
 
-                setFrameIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/coffeeshop.png")); // NOI18N
+                setFrameIcon(new javax.swing.ImageIcon("images/coffeeshop.png")); // NOI18N
                 setMaximumSize(new java.awt.Dimension(1280, 664));
                 setMinimumSize(new java.awt.Dimension(1280, 664));
                 setName(""); // NOI18N

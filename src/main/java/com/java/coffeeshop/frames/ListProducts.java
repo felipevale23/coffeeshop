@@ -9,8 +9,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
-import com.java.coffeeshop.relativepath.RelativePath;
-
 /**
  *
  * @author felip
@@ -23,8 +21,6 @@ public class ListProducts extends javax.swing.JInternalFrame implements FrameMan
     public ListProducts() {
         initComponents();
     }
-
-    RelativePath relativePath = new RelativePath();
 
     int stockSize = 50;
 

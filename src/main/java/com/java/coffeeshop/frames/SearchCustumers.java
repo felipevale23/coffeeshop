@@ -3,7 +3,6 @@ package com.java.coffeeshop.frames;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import com.java.coffeeshop.relativepath.RelativePath;
 
 /**
  *
@@ -17,7 +16,6 @@ public class SearchCustumers extends javax.swing.JInternalFrame implements Frame
     }
 
     int numberofCustumers = 50;
-    RelativePath relativePath = new RelativePath();
     String s;
     String[][] r = new String[numberofCustumers][5];
 

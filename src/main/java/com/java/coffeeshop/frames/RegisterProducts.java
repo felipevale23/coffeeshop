@@ -11,8 +11,6 @@ import java.io.FileWriter;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import com.java.coffeeshop.relativepath.RelativePath;
-
 import java.util.UUID;
 
 /**
@@ -27,8 +25,6 @@ public class RegisterProducts extends javax.swing.JInternalFrame implements Fram
         public RegisterProducts() {
                 initComponents();
         }
-
-        RelativePath relativePath = new RelativePath();
 
         public void writeData(String input, String input2, String input3, String input4, String input5) {
 

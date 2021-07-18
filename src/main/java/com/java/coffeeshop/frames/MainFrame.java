@@ -8,8 +8,6 @@ import java.io.FileWriter;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import com.java.coffeeshop.relativepath.RelativePath;
-
 /**
  *
  * @author felip
@@ -25,7 +23,6 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
 
     String s;
     String[][] r = new String[50][4];
-    RelativePath relativePath = new RelativePath();
 
     public void readData() {
 

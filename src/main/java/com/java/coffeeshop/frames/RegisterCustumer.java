@@ -9,7 +9,6 @@ import java.io.FileWriter;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import com.java.coffeeshop.app.prospect.Custumers;
-import com.java.coffeeshop.relativepath.RelativePath;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -33,7 +32,6 @@ public class RegisterCustumer extends javax.swing.JInternalFrame implements Fram
     int numberofCustumers = 50;
     String s;
     String[][] r = new String[numberofCustumers][5];
-    RelativePath relativePath = new RelativePath();
 
     public void writeData(String input, String input2, String input3, String input4, String input5) {
 

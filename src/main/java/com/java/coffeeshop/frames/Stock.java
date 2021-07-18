@@ -7,7 +7,6 @@ import java.io.FileReader;
 import javax.swing.JFrame;
 
 import com.java.coffeeshop.app.stock.Products;
-import com.java.coffeeshop.relativepath.RelativePath;
 import com.java.coffeeshop.util.ChangeLineInFile;
 
 /**
@@ -23,7 +22,6 @@ public class Stock extends javax.swing.JInternalFrame {
                 initComponents();
         }
 
-        RelativePath relativePath = new RelativePath();
         int custumersList = 50;
         int productListSize = 50;
         int aux = 0;
