@@ -7,7 +7,10 @@ package com.java.coffeeshop.frames;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import java.util.UUID;
 
 /**
  *
@@ -41,6 +44,47 @@ public class RegisterProducts extends javax.swing.JInternalFrame implements Fram
 
         }
 
+        public UUID getNewId() {
+
+                return UUID.randomUUID();
+
+        }
+
+        public void setProductData() {
+
+                String path = "/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/estoque_db.txt";
+                String w[] = new String[5];
+
+                w[0] = idField.getText();
+                w[1] = nameField.getText();
+                w[2] = priceField.getText();
+                w[3] = categoryField.getText();
+                w[4] = ammountField.getText();
+
+                try {
+
+                        BufferedWriter writer = new BufferedWriter(new FileWriter(path, true));
+                        writer.append(w[0] + ";" + w[1] + ";" + w[2] + ";" + w[3] + ";" + w[4] + ";\n");
+
+                        writer.close();
+
+                } catch (Exception e) {
+
+                        System.out.println("Erro ao escrever em Estoque Database");
+
+                }
+
+        }
+
+        public void clear() {
+
+                idField.setText("" + getNewId());
+                nameField.setText("");
+                priceField.setText("");
+                categoryField.setText("");
+                ammountField.setText("");
+        }
+
         /**
          * This method is called from within the constructor to initialize the form.
          * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,7 +101,7 @@ public class RegisterProducts extends javax.swing.JInternalFrame implements Fram
                 priceField = new javax.swing.JTextField();
                 categoryField = new javax.swing.JTextField();
                 ammountField = new javax.swing.JTextField();
-                registerField = new javax.swing.JButton();
+                registerButton = new javax.swing.JButton();
                 jLabel1 = new javax.swing.JLabel();
                 jLabel2 = new javax.swing.JLabel();
                 jLabel3 = new javax.swing.JLabel();
@@ -83,6 +127,8 @@ public class RegisterProducts extends javax.swing.JInternalFrame implements Fram
                                 idFieldActionPerformed(evt);
                         }
                 });
+                idField.setEnabled(false);
+                idField.setText("" + getNewId());
 
                 ammountField.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,15 +136,15 @@ public class RegisterProducts extends javax.swing.JInternalFrame implements Fram
                         }
                 });
 
-                registerField.setBackground(new java.awt.Color(252, 251, 255));
-                registerField.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-                registerField.setForeground(new java.awt.Color(116, 70, 255));
-                registerField.setText("Cadastrar");
-                registerField.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-                registerField.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                registerField.addActionListener(new java.awt.event.ActionListener() {
+                registerButton.setBackground(new java.awt.Color(252, 251, 255));
+                registerButton.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+                registerButton.setForeground(new java.awt.Color(116, 70, 255));
+                registerButton.setText("Cadastrar");
+                registerButton.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+                registerButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                registerButton.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                registerFieldActionPerformed(evt);
+                                registerButtonActionPerformed(evt);
                         }
                 });
 
@@ -186,7 +232,7 @@ public class RegisterProducts extends javax.swing.JInternalFrame implements Fram
                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                 .addGroup(backgroundLayout.createParallelGroup(
                                                                                 javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                .addComponent(registerField,
+                                                                                .addComponent(registerButton,
                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                                 111,
                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -249,8 +295,8 @@ public class RegisterProducts extends javax.swing.JInternalFrame implements Fram
                                                                                 46,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(35, 35, 35)
-                                                .addComponent(registerField, javax.swing.GroupLayout.PREFERRED_SIZE, 33,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(211, 211, 211)));
 
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -273,25 +319,26 @@ public class RegisterProducts extends javax.swing.JInternalFrame implements Fram
                 // TODO add your handling code here:
         }// GEN-LAST:event_ammoutFieldActionPerformed
 
-        private void registerFieldActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_registerFieldActionPerformed
+        private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_registerFieldActionPerformed
                 // TODO add your handling code here:
+
+                JFrame frame = new JFrame("Cadastrado com Sucesso");
 
                 if (nameField.getText() == null || priceField.getText() == null || categoryField.getText() == null
                                 || ammountField.getText() == null) {
 
                         JOptionPane.showMessageDialog(this, "Erro: Complete todos os campos");
+                        clear();
+
+                } else if (JOptionPane.showConfirmDialog(frame, "Deseja cadastrar outro produto?", "Cadastrado",
+                                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+
+                        setProductData();
+                        clear();
 
                 } else {
-                        writeData(idField.getText(), nameField.getText(), priceField.getText(), categoryField.getText(),
-                                        ammountField.getText());
-
-                        JOptionPane.showMessageDialog(this, "Cadastrado com Sucesso");
-
-                        idField.setText("");
-                        nameField.setText("");
-                        priceField.setText("");
-                        categoryField.setText("");
-                        ammountField.setText("");
+                        setProductData();
+                        dispose();
                 }
 
         }// GEN-LAST:event_registerFieldActionPerformed
@@ -308,6 +355,6 @@ public class RegisterProducts extends javax.swing.JInternalFrame implements Fram
         private javax.swing.JLabel jLabel5;
         private javax.swing.JTextField nameField;
         private javax.swing.JTextField priceField;
-        private javax.swing.JButton registerField;
+        private javax.swing.JButton registerButton;
         // End of variables declaration//GEN-END:variables
 }

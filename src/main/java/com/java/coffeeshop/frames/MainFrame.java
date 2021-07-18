@@ -251,6 +251,12 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
         about.setIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/about.png")); // NOI18N
         about.setText("Sobre");
         about.setForeground(new java.awt.Color(116, 70, 255));
+        about.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutActionPerformed(evt);
+            }
+        });
+
         menuBar.add(about);
 
         setJMenuBar(menuBar);
@@ -298,14 +304,6 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
         desktopPane.add(list);
         list.setVisible(true);
 
-        RegisterCustumer registerCustumer = new RegisterCustumer();
-        desktopPane.add(registerCustumer);
-        registerCustumer.setVisible(false);
-
-        RegisterProducts register = new RegisterProducts();
-        desktopPane.add(register);
-        register.setVisible(false);
-
     }// GEN-LAST:event_listProductsActionPerformed
 
     private void productsActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_productsActionPerformed
@@ -315,18 +313,10 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
 
     private void addCustumerActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addCustumerActionPerformed
         // TODO add your handling code here:
+
         RegisterCustumer registerCustumer = new RegisterCustumer();
         desktopPane.add(registerCustumer);
         registerCustumer.setVisible(true);
-
-        RegisterProducts register = new RegisterProducts();
-        desktopPane.add(register);
-        register.setVisible(false);
-
-        ListProducts list = new ListProducts();
-        desktopPane.add(list);
-        list.setVisible(false);
-
     }// GEN-LAST:event_addCustumerActionPerformed
 
     private void searchCustumersActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addCustumerActionPerformed
@@ -343,8 +333,17 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
 
     }
 
+    private void aboutActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addCustumerActionPerformed
+        // TODO add your handling code here:
+        About about = new About();
+        desktopPane.add(about);
+        about.setVisible(true);
+
+    }
+
     private void newSaleActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addCustumerActionPerformed
         // TODO add your handling code here:
+
         NewSale newSale = new NewSale();
         desktopPane.add(newSale);
         newSale.setVisible(true);

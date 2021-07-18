@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates and open the template
- * in the editor.
- */
-
 package com.java.coffeeshop.frames;
 
 import java.io.BufferedReader;
@@ -11,6 +5,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -33,8 +29,9 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
         int rowCounter = 0;
         int aux = 0;
         float total;
-        float desc;
+        float desc = 0F;
         int lastCode = 1000;
+        String aux2;
 
         String s;
         String[][] r = new String[custumersList][5];
@@ -244,7 +241,7 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
                 do {
 
-                        t[i][0] = "20/10/2021";
+                        t[i][0] = getDate();
                         t[i][1] = "" + jTextField2.getText();
                         t[i][2] = "" + jComboBox1.getSelectedItem();
                         t[i][3] = "" + jTable1.getValueAt(i, 1);
@@ -335,12 +332,26 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
         }
 
         public boolean isNumeric(String str) {
+
                 try {
                         Double.parseDouble(str);
                         return true;
+
                 } catch (NumberFormatException e) {
+
                         return false;
+
                 }
+        }
+
+        public String getDate() {
+
+                SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
+
+                Date date = new Date();
+
+                return sdf1.format(date);
+
         }
 
         public void clear() {
@@ -492,6 +503,7 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
                                 descontoActionPerformed(evt);
                         }
                 });
+                desconto.setEnabled(false);
 
                 botaoSalvar.setText("Salvar");
                 botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -760,6 +772,18 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
         private void botaoAdicionarActionPerformed(java.awt.event.ActionEvent evt) {
                 // TODO add your handling code here:
                 JFrame frame = new JFrame("Adicionar");
+                System.out.println("" + jComboBox1.getSelectedItem());
+
+                if (jComboBox1.getSelectedItem() != custumers[0].getFullName()) {
+
+                        desconto.setText("10%");
+                        desc = 10;
+
+                } else {
+
+                        desconto.setText("0%");
+                        desc = 0;
+                }
 
                 if (isNumeric(jTextField4.getText())) {
 
@@ -785,13 +809,19 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
         private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {
 
-                JFrame frame = new JFrame("Salvar");
-                if (JOptionPane.showConfirmDialog(frame, "Deseja realmente salvar?", "Salvar",
+                JFrame frame = new JFrame("Salvo com Sucesso");
+                if (JOptionPane.showConfirmDialog(frame, "Deseja fazer uma nova venda?", "Salvo",
                                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
 
                         setSalesTableData();
                         setSaleCode();
                         clear();
+
+                } else {
+
+                        setSalesTableData();
+                        setSaleCode();
+                        dispose();
 
                 }
 

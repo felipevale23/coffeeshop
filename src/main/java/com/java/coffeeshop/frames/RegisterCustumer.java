@@ -5,6 +5,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import com.java.coffeeshop.app.prospect.Custumers;
 
@@ -114,6 +116,42 @@ public class RegisterCustumer extends javax.swing.JInternalFrame implements Fram
             s = "Erro de Leitura";
 
         }
+
+    }
+
+    public void setCustumersData() {
+
+        String path = "/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/clientes_db.txt";
+        String w[] = new String[5];
+
+        w[0] = jTextFieldNome.getText();
+        w[1] = jTextFieldCep.getText();
+        w[2] = jTextFieldCPF.getText();
+        w[3] = jTextFieldData.getText();
+        w[4] = jTextFieldTelefone.getText();
+
+        try {
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter(path, true));
+            writer.append(w[0] + ";" + w[1] + ";" + w[2] + ";" + w[3] + ";" + w[4] + ";\n");
+
+            writer.close();
+
+        } catch (Exception e) {
+
+            System.out.println("Erro ao escrever em Estoque Database");
+
+        }
+
+    }
+
+    public void clear() {
+
+        jTextFieldNome.setText("");
+        jTextFieldCep.setText("");
+        jTextFieldCPF.setText("");
+        jTextFieldData.setText("");
+        jTextFieldTelefone.setText("");
 
     }
 
@@ -299,27 +337,31 @@ public class RegisterCustumer extends javax.swing.JInternalFrame implements Fram
     private void jButtonSalvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTextFieldNomeActionPerformed
         // TODO add your handling code here:
 
-        writeData(jTextFieldNome.getText(), jTextFieldCep.getText(), jTextFieldCPF.getText(), jTextFieldData.getText(),
-                jTextFieldTelefone.getText());
-
-        JOptionPane.showMessageDialog(this, "Cadastrado com Sucesso");
+        JFrame frame = new JFrame("Cadastrado com Sucesso");
         readData();
 
-        jTextFieldNome.setText("");
-        jTextFieldCep.setText("");
-        jTextFieldCPF.setText("");
-        jTextFieldData.setText("");
-        jTextFieldTelefone.setText("");
+        if (jTextFieldNome.getText() == null || jTextFieldCep.getText() == null || jTextFieldCPF.getText() == null
+                || jTextFieldData.getText() == null || jTextFieldTelefone.getText() == null) {
+
+            JOptionPane.showMessageDialog(this, "Erro: Complete todos os campos");
+            clear();
+
+        } else if (JOptionPane.showConfirmDialog(frame, "Deseja cadastrar outro cliente?", "Cadastrado",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+
+            setCustumersData();
+            clear();
+
+        } else {
+            setCustumersData();
+            dispose();
+        }
 
     }// GEN-LAST:event_jTextFieldNomeActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTextFieldNomeActionPerformed
         // TODO add your handling code here:
-        jTextFieldNome.setText("");
-        jTextFieldCep.setText("");
-        jTextFieldCPF.setText("");
-        jTextFieldData.setText("");
-        jTextFieldTelefone.setText("");
+        clear();
 
     }// GEN-LAST:event_jTextFieldNomeActionPerformed
 
