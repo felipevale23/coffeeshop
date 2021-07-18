@@ -23,8 +23,7 @@ public class SearchCustumers extends javax.swing.JInternalFrame implements Frame
 
     public void readData() {
 
-        File file = new File(
-                relativePath.getPath() + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/clientes_db.txt");
+        File file = new File("src/main/java/com/java/coffeeshop/frames/clientes_db.txt");
         String path = file.getPath();
 
         try {
@@ -105,7 +104,7 @@ public class SearchCustumers extends javax.swing.JInternalFrame implements Frame
         setClosable(true);
         setResizable(true);
 
-        setFrameIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/coffeeshop.png"));
+        setFrameIcon(new javax.swing.ImageIcon("images/coffeeshop.png"));
         setMaximumSize(new java.awt.Dimension(1280, 664));
         setMinimumSize(new java.awt.Dimension(1280, 664));
         setName(""); // NOI18N

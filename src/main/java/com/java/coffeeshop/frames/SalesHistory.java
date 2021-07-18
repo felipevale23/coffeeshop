@@ -35,8 +35,7 @@ public class SalesHistory extends javax.swing.JInternalFrame {
 
         public void readSalesData() {
 
-                File file = new File(relativePath.getPath()
-                                + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/salesHistory_db.txt");
+                File file = new File("src/main/java/com/java/coffeeshop/frames/salesHistory_db.txt");
                 String path = file.getPath();
 
                 try {
@@ -126,7 +125,7 @@ public class SalesHistory extends javax.swing.JInternalFrame {
                 setBorder(null);
                 setClosable(true);
                 setEnabled(false);
-                setFrameIcon(null);
+                setFrameIcon(new javax.swing.ImageIcon("images/coffeeshop.png"));
                 setMaximumSize(new java.awt.Dimension(1280, 664));
                 setMinimumSize(new java.awt.Dimension(1280, 664));
                 setPreferredSize(new java.awt.Dimension(1280, 664));

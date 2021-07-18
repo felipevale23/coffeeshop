@@ -33,8 +33,7 @@ public class Stock extends javax.swing.JInternalFrame {
 
         public void readDataProducts() {
 
-                File file = new File(relativePath.getPath()
-                                + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/estoque_db.txt");
+                File file = new File("src/main/java/com/java/coffeeshop/frames/estoque_db.txt");
                 String path = file.getPath();
 
                 try {
@@ -109,8 +108,7 @@ public class Stock extends javax.swing.JInternalFrame {
 
         public void setNewAmmount() {
 
-                String file = relativePath.getPath()
-                                + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/estoque_db.txt";
+                String file = "src/main/java/com/java/coffeeshop/frames/estoque_db.txt";
                 String newLineContent = "" + products[aux].getId() + ";" + products[aux].getName() + ";"
                                 + products[aux].getPrice() + ";" + products[aux].getCategory() + ";" + getNewAmmount()
                                 + ";";
@@ -153,7 +151,7 @@ public class Stock extends javax.swing.JInternalFrame {
 
                 setClosable(true);
                 setResizable(true);
-                setFrameIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/coffeeshop.png"));
+                setFrameIcon(new javax.swing.ImageIcon("images/coffeeshop.png"));
                 setMaximumSize(new java.awt.Dimension(1280, 664));
                 setMinimumSize(new java.awt.Dimension(1280, 664));
                 setPreferredSize(new java.awt.Dimension(1280, 664));

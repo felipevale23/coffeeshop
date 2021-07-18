@@ -37,7 +37,7 @@ public class RegisterCustumer extends javax.swing.JInternalFrame implements Fram
 
     public void writeData(String input, String input2, String input3, String input4, String input5) {
 
-        String path = relativePath.getPath() + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/clientes_db.txt";
+        String path = "src/main/java/com/java/coffeeshop/frames/clientes_db.txt";
 
         try {
 
@@ -56,8 +56,7 @@ public class RegisterCustumer extends javax.swing.JInternalFrame implements Fram
 
     public void readData() {
 
-        File file = new File(
-                relativePath.getPath() + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/clientes_db.txt");
+        File file = new File("src/main/java/com/java/coffeeshop/frames/clientes_db.txt");
         String path = file.getPath();
 
         try {
@@ -123,7 +122,7 @@ public class RegisterCustumer extends javax.swing.JInternalFrame implements Fram
 
     public void setCustumersData() {
 
-        String path = relativePath.getPath() + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/clientes_db.txt";
+        String path = "src/main/java/com/java/coffeeshop/frames/clientes_db.txt";
         String w[] = new String[5];
 
         w[0] = jTextFieldNome.getText();
@@ -186,7 +185,7 @@ public class RegisterCustumer extends javax.swing.JInternalFrame implements Fram
         setClosable(true);
         setResizable(true);
 
-        setFrameIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/coffeeshop.png"));
+        setFrameIcon(new javax.swing.ImageIcon("images/coffeeshop.png"));
         setMaximumSize(new java.awt.Dimension(1280, 664));
         setMinimumSize(new java.awt.Dimension(1280, 664));
         setName(""); // NOI18N

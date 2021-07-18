@@ -32,8 +32,7 @@ public class RegisterProducts extends javax.swing.JInternalFrame implements Fram
 
         public void writeData(String input, String input2, String input3, String input4, String input5) {
 
-                String path = relativePath.getPath()
-                                + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/estoque_db.txt";
+                String path = "src/main/java/com/java/coffeeshop/frames/estoque_db.txt";
 
                 try {
 
@@ -58,8 +57,7 @@ public class RegisterProducts extends javax.swing.JInternalFrame implements Fram
 
         public void setProductData() {
 
-                String path = relativePath.getPath()
-                                + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/estoque_db.txt";
+                String path = "src/main/java/com/java/coffeeshop/frames/estoque_db.txt";
                 String w[] = new String[5];
 
                 w[0] = idField.getText();
@@ -118,7 +116,7 @@ public class RegisterProducts extends javax.swing.JInternalFrame implements Fram
                 setClosable(true);
                 setResizable(true);
 
-                setFrameIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/coffeeshop.png")); // NOI18N
+                setFrameIcon(new javax.swing.ImageIcon("images/coffeeshop.png")); // NOI18N
                 setMaximumSize(new java.awt.Dimension(1280, 664));
                 setMinimumSize(new java.awt.Dimension(1280, 664));
                 setName(""); // NOI18N

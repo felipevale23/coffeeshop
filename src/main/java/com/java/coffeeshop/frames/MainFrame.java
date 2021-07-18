@@ -29,7 +29,7 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
 
     public void readData() {
 
-        File file = new File(relativePath.getPath() + "/coffeeshop/src/main/java/com/java/coffeeshop/estoque_db.txt");
+        File file = new File("src/main/java/com/java/coffeeshop/frames/estoque_db.txt");
         String path = file.getPath();
 
         try {
@@ -70,7 +70,7 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
 
     public void writeDate(String input) {
 
-        String path = relativePath.getPath() + "/coffeeshop/src/main/java/com/java/coffeeshop/estoque_db.txt";
+        String path = "src/main/java/com/java/coffeeshop/frames/estoque_db.txt";
 
         try {
 
@@ -126,11 +126,11 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
         desktopPaneLayout.setVerticalGroup(desktopPaneLayout
                 .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 660, Short.MAX_VALUE));
 
-        file.setIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/page.png")); // NOI18N
+        file.setIcon(new javax.swing.ImageIcon("images/page.png")); // NOI18N
         file.setText("Arquivo");
         file.setForeground(new java.awt.Color(116, 70, 255));
 
-        exit.setIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/exit.png")); // NOI18N
+        exit.setIcon(new javax.swing.ImageIcon("images/exit.png")); // NOI18N
         exit.setText("Sair");
         exit.setForeground(new java.awt.Color(116, 70, 255));
         exit.addActionListener(new java.awt.event.ActionListener() {
@@ -142,12 +142,11 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
 
         menuBar.add(file);
 
-        custumers.setIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/customer.png")); // NOI18N
+        custumers.setIcon(new javax.swing.ImageIcon("images/customer.png")); // NOI18N
         custumers.setText("Clientes");
         custumers.setForeground(new java.awt.Color(116, 70, 255));
 
-        searchCustumers
-                .setIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/findcustumer.png")); // NOI18N
+        searchCustumers.setIcon(new javax.swing.ImageIcon("images/findcustumer.png")); // NOI18N
         searchCustumers.setText("Consultar");
         searchCustumers.setForeground(new java.awt.Color(116, 70, 255));
         searchCustumers.addActionListener(new java.awt.event.ActionListener() {
@@ -157,7 +156,7 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
         });
         custumers.add(searchCustumers);
 
-        addCustumer.setIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/adduser.png")); // NOI18N
+        addCustumer.setIcon(new javax.swing.ImageIcon("images/adduser.png")); // NOI18N
         addCustumer.setText("Cadastrar");
         addCustumer.setForeground(new java.awt.Color(116, 70, 255));
         addCustumer.addActionListener(new java.awt.event.ActionListener() {
@@ -169,7 +168,7 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
 
         menuBar.add(custumers);
 
-        products.setIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/products.png")); // NOI18N
+        products.setIcon(new javax.swing.ImageIcon("images/products.png")); // NOI18N
         products.setText("Produtos");
         products.setForeground(new java.awt.Color(116, 70, 255));
         products.addActionListener(new java.awt.event.ActionListener() {
@@ -178,7 +177,7 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
             }
         });
 
-        listProducts.setIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/listproducts.png")); // NOI18N
+        listProducts.setIcon(new javax.swing.ImageIcon("images/listproducts.png")); // NOI18N
         listProducts.setText("Listar");
         listProducts.setForeground(new java.awt.Color(116, 70, 255));
         listProducts.addActionListener(new java.awt.event.ActionListener() {
@@ -188,8 +187,7 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
         });
         products.add(listProducts);
 
-        registerProducts
-                .setIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/newproduct.png")); // NOI18N
+        registerProducts.setIcon(new javax.swing.ImageIcon("images/newproduct.png")); // NOI18N
         registerProducts.setText("Cadastrar");
         registerProducts.setForeground(new java.awt.Color(116, 70, 255));
         registerProducts.addActionListener(new java.awt.event.ActionListener() {
@@ -199,7 +197,7 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
         });
         products.add(registerProducts);
 
-        stock.setIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/stock.png")); // NOI18N
+        stock.setIcon(new javax.swing.ImageIcon("images/stock.png")); // NOI18N
         stock.setText("Estoque");
         stock.setForeground(new java.awt.Color(116, 70, 255));
         stock.addActionListener(new java.awt.event.ActionListener() {
@@ -212,7 +210,7 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
 
         menuBar.add(products);
 
-        sales.setIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/sellstock.png")); // NOI18N
+        sales.setIcon(new javax.swing.ImageIcon("images/sellstock.png")); // NOI18N
         sales.setText("Vendas");
         sales.setForeground(new java.awt.Color(116, 70, 255));
         sales.addActionListener(new java.awt.event.ActionListener() {
@@ -221,7 +219,7 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
             }
         });
 
-        newSale.setIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/neworder.png")); // NOI18N
+        newSale.setIcon(new javax.swing.ImageIcon("images/neworder.png")); // NOI18N
         newSale.setText("Nova Venda");
         newSale.setForeground(new java.awt.Color(116, 70, 255));
         newSale.addActionListener(new java.awt.event.ActionListener() {
@@ -231,7 +229,7 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
         });
         sales.add(newSale);
 
-        salesHistory.setIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/saleshistory.png")); // NOI18N
+        salesHistory.setIcon(new javax.swing.ImageIcon("images/saleshistory.png")); // NOI18N
         salesHistory.setText("Livro Caixa");
         salesHistory.setForeground(new java.awt.Color(116, 70, 255));
         salesHistory.addActionListener(new java.awt.event.ActionListener() {
@@ -243,7 +241,7 @@ public class MainFrame extends javax.swing.JFrame implements FrameManagement {
 
         menuBar.add(sales);
 
-        about.setIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/about.png")); // NOI18N
+        about.setIcon(new javax.swing.ImageIcon("images/about.png")); // NOI18N
         about.setText("Sobre");
         about.setForeground(new java.awt.Color(116, 70, 255));
         about.addActionListener(new java.awt.event.ActionListener() {

@@ -44,8 +44,7 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
         public void readDataCustumers() {
 
-                File file = new File(relativePath.getPath()
-                                + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/clientes_db.txt");
+                File file = new File("src/main/java/com/java/coffeeshop/frames/clientes_db.txt");
                 String path = file.getPath();
 
                 try {
@@ -86,8 +85,7 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
         public void readDataProducts() {
 
-                File file = new File(relativePath.getPath()
-                                + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/estoque_db.txt");
+                File file = new File("src/main/java/com/java/coffeeshop/frames/estoque_db.txt");
                 String path = file.getPath();
 
                 try {
@@ -237,8 +235,7 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
         public void setSalesTableData() {
 
-                String path = relativePath.getPath()
-                                + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/salesHistory_db.txt";
+                String path = "src/main/java/com/java/coffeeshop/frames/salesHistory_db.txt";
                 int i = 0;
                 String[][] t = new String[50][6];
                 boolean flag = false;
@@ -282,8 +279,7 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
         public String getSaleCode() {
 
-                File file = new File(relativePath.getPath()
-                                + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/salesCode_db.txt");
+                File file = new File("src/main/java/com/java/coffeeshop/frames/salesCode_db.txt");
                 String path = file.getPath();
 
                 try {
@@ -316,8 +312,7 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
         public void setSaleCode() {
 
-                File file = new File(relativePath.getPath()
-                                + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/salesCode_db.txt");
+                File file = new File("src/main/java/com/java/coffeeshop/frames/salesCode_db.txt");
                 String path = file.getPath();
 
                 try {
@@ -415,7 +410,7 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
                 setClosable(true);
                 setResizable(true);
-                setFrameIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/coffeeshop.png"));
+                setFrameIcon(new javax.swing.ImageIcon("images/coffeeshop.png"));
                 setMaximumSize(new java.awt.Dimension(1280, 664));
                 setMinimumSize(new java.awt.Dimension(1280, 664));
                 setName(""); // NOI18N

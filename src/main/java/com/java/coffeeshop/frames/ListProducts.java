@@ -33,8 +33,7 @@ public class ListProducts extends javax.swing.JInternalFrame implements FrameMan
 
     public void readData() {
 
-        File file = new File(
-                relativePath.getPath() + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/estoque_db.txt");
+        File file = new File("src/main/java/com/java/coffeeshop/frames/estoque_db.txt");
         String path = file.getPath();
 
         try {
@@ -113,7 +112,7 @@ public class ListProducts extends javax.swing.JInternalFrame implements FrameMan
         productTable = new javax.swing.JTable();
 
         setClosable(true);
-        setFrameIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/coffeeshop.png")); // NOI18N
+        setFrameIcon(new javax.swing.ImageIcon("images/coffeeshop.png")); // NOI18N
         setMinimumSize(new java.awt.Dimension(1280, 664));
         setPreferredSize(new java.awt.Dimension(1280, 664));
         try {
