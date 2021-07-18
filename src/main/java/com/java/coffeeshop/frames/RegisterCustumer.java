@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import com.java.coffeeshop.app.prospect.Custumers;
+import com.java.coffeeshop.relativepath.RelativePath;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -32,10 +33,11 @@ public class RegisterCustumer extends javax.swing.JInternalFrame implements Fram
     int numberofCustumers = 50;
     String s;
     String[][] r = new String[numberofCustumers][5];
+    RelativePath relativePath = new RelativePath();
 
     public void writeData(String input, String input2, String input3, String input4, String input5) {
 
-        String path = "/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/clientes_db.txt";
+        String path = relativePath.getPath() + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/clientes_db.txt";
 
         try {
 
@@ -55,7 +57,7 @@ public class RegisterCustumer extends javax.swing.JInternalFrame implements Fram
     public void readData() {
 
         File file = new File(
-                "/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/clientes_db.txt");
+                relativePath.getPath() + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/clientes_db.txt");
         String path = file.getPath();
 
         try {
@@ -121,7 +123,7 @@ public class RegisterCustumer extends javax.swing.JInternalFrame implements Fram
 
     public void setCustumersData() {
 
-        String path = "/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/clientes_db.txt";
+        String path = relativePath.getPath() + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/clientes_db.txt";
         String w[] = new String[5];
 
         w[0] = jTextFieldNome.getText();
@@ -184,7 +186,7 @@ public class RegisterCustumer extends javax.swing.JInternalFrame implements Fram
         setClosable(true);
         setResizable(true);
 
-        setFrameIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/coffeeshop.png"));
+        setFrameIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/coffeeshop.png"));
         setMaximumSize(new java.awt.Dimension(1280, 664));
         setMinimumSize(new java.awt.Dimension(1280, 664));
         setName(""); // NOI18N

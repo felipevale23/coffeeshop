@@ -9,6 +9,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
+import com.java.coffeeshop.relativepath.RelativePath;
+
 /**
  *
  * @author felip
@@ -22,6 +24,8 @@ public class ListProducts extends javax.swing.JInternalFrame implements FrameMan
         initComponents();
     }
 
+    RelativePath relativePath = new RelativePath();
+
     int stockSize = 50;
 
     String s;
@@ -30,7 +34,7 @@ public class ListProducts extends javax.swing.JInternalFrame implements FrameMan
     public void readData() {
 
         File file = new File(
-                "/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/estoque_db.txt");
+                relativePath.getPath() + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/estoque_db.txt");
         String path = file.getPath();
 
         try {
@@ -109,7 +113,7 @@ public class ListProducts extends javax.swing.JInternalFrame implements FrameMan
         productTable = new javax.swing.JTable();
 
         setClosable(true);
-        setFrameIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/coffeeshop.png")); // NOI18N
+        setFrameIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/coffeeshop.png")); // NOI18N
         setMinimumSize(new java.awt.Dimension(1280, 664));
         setPreferredSize(new java.awt.Dimension(1280, 664));
         try {

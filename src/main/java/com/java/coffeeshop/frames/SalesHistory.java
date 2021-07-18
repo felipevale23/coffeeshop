@@ -9,6 +9,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
+import com.java.coffeeshop.relativepath.RelativePath;
+
 /**
  *
  * @author felip
@@ -22,6 +24,7 @@ public class SalesHistory extends javax.swing.JInternalFrame {
                 initComponents();
         }
 
+        RelativePath relativePath = new RelativePath();
         int salesListSize = 50;
         int productListSize = 50;
         int rowCounter = 0;
@@ -32,8 +35,8 @@ public class SalesHistory extends javax.swing.JInternalFrame {
 
         public void readSalesData() {
 
-                File file = new File(
-                                "/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/salesHistory_db.txt");
+                File file = new File(relativePath.getPath()
+                                + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/salesHistory_db.txt");
                 String path = file.getPath();
 
                 try {

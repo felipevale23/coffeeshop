@@ -5,3 +5,4 @@ c367a19b-6b30-4045-b446-6dc05b8b3acd;Latte;5.50;Bebidas;10;
 fa4b3ca8-7333-44cf-8496-f9fdf9b34d32;Cheese Cake;5.50;Sobremesa;10;
 3bfd2a9c-a14d-40b1-8750-c85e9e16635b;Coca Cola 350ml;4.50;Bebidas;10;
 b27f3b50-2fed-41ff-ba9d-8f1749fc7617;Churros (Doce de Leite);5.50;Doces;10;
+6f6e8a72-d543-4793-8ed1-619d6858580b;Corona (Long Neck 350ml);7.50;Bebidas;10;

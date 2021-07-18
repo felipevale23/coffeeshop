@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 
 import com.java.coffeeshop.app.prospect.Custumers;
 import com.java.coffeeshop.app.stock.Products;
+import com.java.coffeeshop.relativepath.RelativePath;
 
 public class NewSale extends javax.swing.JInternalFrame implements FrameManagement {
 
@@ -24,6 +25,7 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
                 initComponents();
         }
 
+        RelativePath relativePath = new RelativePath();
         int custumersList = 50;
         int productListSize = 50;
         int rowCounter = 0;
@@ -41,8 +43,8 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
         public void readDataCustumers() {
 
-                File file = new File(
-                                "/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/clientes_db.txt");
+                File file = new File(relativePath.getPath()
+                                + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/clientes_db.txt");
                 String path = file.getPath();
 
                 try {
@@ -83,8 +85,8 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
         public void readDataProducts() {
 
-                File file = new File(
-                                "/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/estoque_db.txt");
+                File file = new File(relativePath.getPath()
+                                + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/estoque_db.txt");
                 String path = file.getPath();
 
                 try {
@@ -234,7 +236,8 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
         public void setSalesTableData() {
 
-                String path = "/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/salesHistory_db.txt";
+                String path = relativePath.getPath()
+                                + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/salesHistory_db.txt";
                 int i = 0;
                 String[][] t = new String[50][6];
                 boolean flag = false;
@@ -278,8 +281,8 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
         public String getSaleCode() {
 
-                File file = new File(
-                                "/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/salesCode_db.txt");
+                File file = new File(relativePath.getPath()
+                                + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/salesCode_db.txt");
                 String path = file.getPath();
 
                 try {
@@ -312,8 +315,8 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
         public void setSaleCode() {
 
-                File file = new File(
-                                "/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/salesCode_db.txt");
+                File file = new File(relativePath.getPath()
+                                + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/salesCode_db.txt");
                 String path = file.getPath();
 
                 try {
@@ -411,8 +414,7 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
 
                 setClosable(true);
                 setResizable(true);
-                setFrameIcon(new javax.swing.ImageIcon(
-                                "/home/felipe/DEV/Java-Scripts/coffeeshop/images/coffeeshop.png"));
+                setFrameIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/coffeeshop.png"));
                 setMaximumSize(new java.awt.Dimension(1280, 664));
                 setMinimumSize(new java.awt.Dimension(1280, 664));
                 setName(""); // NOI18N

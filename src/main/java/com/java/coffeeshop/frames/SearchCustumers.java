@@ -3,6 +3,7 @@ package com.java.coffeeshop.frames;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import com.java.coffeeshop.relativepath.RelativePath;
 
 /**
  *
@@ -16,14 +17,14 @@ public class SearchCustumers extends javax.swing.JInternalFrame implements Frame
     }
 
     int numberofCustumers = 50;
-
+    RelativePath relativePath = new RelativePath();
     String s;
     String[][] r = new String[numberofCustumers][5];
 
     public void readData() {
 
         File file = new File(
-                "/home/felipe/DEV/Java-Scripts/coffeeshop/src/main/java/com/java/coffeeshop/frames/clientes_db.txt");
+                relativePath.getPath() + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/clientes_db.txt");
         String path = file.getPath();
 
         try {
@@ -104,7 +105,7 @@ public class SearchCustumers extends javax.swing.JInternalFrame implements Frame
         setClosable(true);
         setResizable(true);
 
-        setFrameIcon(new javax.swing.ImageIcon("/home/felipe/DEV/Java-Scripts/coffeeshop/images/coffeeshop.png"));
+        setFrameIcon(new javax.swing.ImageIcon(relativePath.getPath() + "/coffeeshop/images/coffeeshop.png"));
         setMaximumSize(new java.awt.Dimension(1280, 664));
         setMinimumSize(new java.awt.Dimension(1280, 664));
         setName(""); // NOI18N
