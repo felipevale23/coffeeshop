@@ -4,8 +4,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
+import javax.swing.JFrame;
+
 import com.java.coffeeshop.app.stock.Products;
 import com.java.coffeeshop.relativepath.RelativePath;
+import com.java.coffeeshop.util.ChangeLineInFile;
 
 /**
  *
@@ -93,6 +96,44 @@ public class Stock extends javax.swing.JInternalFrame {
 
         }
 
+        public String getNewAmmount() {
+
+                int i = Integer.parseInt(products[aux].getAmmount()) + Integer.parseInt(jTextFieldQuantidade.getText());
+
+                System.out.println(Integer.parseInt(products[aux].getAmmount()));
+                System.out.println(Integer.parseInt(jTextFieldQuantidade.getText()));
+
+                return "" + i;
+
+        }
+
+        public void setNewAmmount() {
+
+                String file = relativePath.getPath()
+                                + "/coffeeshop/src/main/java/com/java/coffeeshop/frames/estoque_db.txt";
+                String newLineContent = "" + products[aux].getId() + ";" + products[aux].getName() + ";"
+                                + products[aux].getPrice() + ";" + products[aux].getCategory() + ";" + getNewAmmount()
+                                + ";";
+                int lineToBeEdited = aux + 1;
+
+                ChangeLineInFile changeFile = new ChangeLineInFile();
+                changeFile.changeALineInATextFile(file, newLineContent, lineToBeEdited);
+
+        }
+
+        public boolean isNumeric(String str) {
+
+                try {
+                        Double.parseDouble(str);
+                        return true;
+
+                } catch (NumberFormatException e) {
+
+                        return false;
+
+                }
+        }
+
         /**
          * This method is called from within the constructor to initialize the form.
          * WARNING: Do NOT modify this code. The content of this method is always
@@ -133,6 +174,11 @@ public class Stock extends javax.swing.JInternalFrame {
                 jButtonCancelar.setText("Cancelar");
 
                 jButtonSalvar.setText("Salvar");
+                jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                jButtonSalvarActionPerformed(evt);
+                        }
+                });
 
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                 getContentPane().setLayout(layout);
@@ -226,6 +272,26 @@ public class Stock extends javax.swing.JInternalFrame {
                 } catch (Exception e) {
 
                         s = "Erro de Leitura";
+
+                }
+
+        }
+
+        private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {
+                // TODO add your handling code here:
+
+                JFrame frame = new JFrame("Adicionar");
+                System.out.println("" + jComboBoxProduto.getSelectedItem());
+
+                if (isNumeric(jTextFieldQuantidade.getText())) {
+
+                        setNewAmmount();
+                        jTextFieldQuantidade.setText("");
+
+                } else {
+
+                        javax.swing.JOptionPane.showMessageDialog(frame, "Insira a quantidade", "Error",
+                                        javax.swing.JOptionPane.ERROR_MESSAGE);
 
                 }
 

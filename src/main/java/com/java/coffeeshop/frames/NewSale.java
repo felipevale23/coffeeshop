@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import com.java.coffeeshop.app.prospect.Custumers;
 import com.java.coffeeshop.app.stock.Products;
 import com.java.coffeeshop.relativepath.RelativePath;
+import com.java.coffeeshop.util.ChangeLineInFile;
 
 public class NewSale extends javax.swing.JInternalFrame implements FrameManagement {
 
