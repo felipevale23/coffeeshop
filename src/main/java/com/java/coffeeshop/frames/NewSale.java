@@ -419,6 +419,7 @@ public class NewSale extends javax.swing.JInternalFrame implements FrameManageme
                 setMinimumSize(new java.awt.Dimension(1280, 664));
                 setName(""); // NOI18N
                 setPreferredSize(new java.awt.Dimension(1280, 664));
+
                 try {
                         setSelected(true);
                 } catch (java.beans.PropertyVetoException e1) {

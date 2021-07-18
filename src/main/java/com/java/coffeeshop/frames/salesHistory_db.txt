@@ -6,3 +6,5 @@
 18/07/2021;1003;Kalil;Expresso;1;1.8;
 18/07/2021;1003;Kalil;Latte;2;9.9;
 18/07/2021;1003;Kalil;Corona (Long Neck 350ml);1;6.75;
+18/07/2021;1004;Josivaldo;Latte;1;4.95;
+18/07/2021;1005;Andriosvaldo;Cheese Cake;1;4.95;
